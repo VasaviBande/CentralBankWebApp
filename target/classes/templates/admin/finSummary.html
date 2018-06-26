@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" style="height: auto; min-height: 100%;">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Welcome to Central Bank NetBanking</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" >
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/css/font-awesome.css}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" th:href="@{/css/ionicons.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/css/AdminLTE.css}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" th:href="@{/css/_all-skins.css}">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" th:href="@{/css/css.css}">
+</head>
+<body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
+<div class="wrapper" style="height: auto; min-height: 100%;">
+
+  <header class="main-header" th:replace="fragments/header"></header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" th:replace="fragments/sidebar"></aside>
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Financial Summary
+        <small>it all starts here</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Accounts</a></li>
+        <li class="active">Financial Summary page</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-body">
+           <div class="col-md-12">
+              <div class="callout callout-info">
+                <h4>Holdings!</h4>
+                <p>Savings Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Available Balance: INR 5.00.</p>
+              </div>
+          <!-- /.box -->
+        </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <div class="callout callout-warning">
+               <h4>OutStanding!</h4>
+                <p>Loan Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Loan Amount: INR 5.00.</p>
+              </div>
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<footer class="main-footer no-print" th:replace="fragments/footer"></footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script th:src="@{/js/jquery.js}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script th:src="@{/js/bootstrap.js}"></script>
+<!-- FastClick -->
+<script th:src="@{/js/fastclick.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/js/adminlte.js}"></script>
+<!-- AdminLTE for demo purposes -->
+<script th:src="@{/js/demo.js}"></script>
+
+
+</body></html>
