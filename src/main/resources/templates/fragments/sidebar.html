@@ -8,14 +8,14 @@
       <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
-          <a href="#">
+          <a href="/admin/home">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="treeview active menu-open">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Accounts</span>
@@ -24,9 +24,11 @@
             </span>
           </a>
 		    <ul class="treeview-menu">
-            <li><a href="/admin/finSummary"><i class="fa fa-circle-o"></i>Financial Summary</a></li>
-            <li><a href="/UI/icons.html"><i class="fa fa-circle-o"></i> Account Summary</a></li>
-            <li><a href="/UI/buttons.html"><i class="fa fa-circle-o"></i> Enquire</a></li>
+            <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/finSummary' ? 'active':''}">
+            	<a th:href="@{/admin/finSummary}"><i class="fa fa-circle-o"></i>Financial Summary</a>
+            </li>
+            <li><a href="/admin/acSummary"><i class="fa fa-circle-o"></i> Account Summary</a></li>
+            <li><a href="/UI/buttons.html"><i class="fa fa-circle-o"></i> Statement</a></li>
             <li><a href="/UI/sliders.html"><i class="fa fa-circle-o"></i> Request</a></li>
           </ul>
         </li>
@@ -65,7 +67,7 @@
             </span>
           </a>
 			<ul class="treeview-menu">
-				<li><a href="#"><i class="fa fa-circle-o"></i> Loan Summary</a></li>
+				<li><a href="/admin/loanSummary"><i class="fa fa-circle-o"></i> Loan Summary</a></li>
            </ul>
         </li>
         <li>

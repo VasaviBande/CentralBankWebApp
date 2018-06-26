@@ -71,7 +71,30 @@ public class LoginController {
 	@RequestMapping(value="/admin/finSummary", method = RequestMethod.GET)
 	public ModelAndView finSummary(){
 		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
 		modelAndView.setViewName("admin/finSummary");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/admin/loanSummary", method = RequestMethod.GET)
+	public ModelAndView loanSummary(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
+		modelAndView.setViewName("admin/loanSummary");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/admin/acSummary", method = RequestMethod.GET)
+	public ModelAndView acSummary(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
+		modelAndView.setViewName("admin/acSummary");
 		return modelAndView;
 	}
 	
