@@ -15,7 +15,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview active menu-open">
+        <li class="treeview" th:classappend="${#httpServletRequest.getRequestURI() == '/admin/finSummary' ? 'active menu-open':''}">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Accounts</span>
@@ -27,12 +27,15 @@
             <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/finSummary' ? 'active':''}">
             	<a th:href="@{/admin/finSummary}"><i class="fa fa-circle-o"></i>Financial Summary</a>
             </li>
-            <li><a href="/admin/acSummary"><i class="fa fa-circle-o"></i> Account Summary</a></li>
-            <li><a href="/UI/buttons.html"><i class="fa fa-circle-o"></i> Statement</a></li>
-            <li><a href="/UI/sliders.html"><i class="fa fa-circle-o"></i> Request</a></li>
+            <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/acSummary' ? 'active':''}">
+            	<a href="/admin/acSummary"><i class="fa fa-circle-o"></i> Account Summary</a>
+            </li>
+            <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/statement' ? 'active':''}">
+            	<a href="/admin/statement"><i class="fa fa-circle-o"></i> Statement</a>
+            </li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview" th:classappend="${#httpServletRequest.getRequestURI() == '/admin/interTransfer' ? 'active menu-open':''}">
           <a href="#">
             <i class="fa fa-th"></i> <span>Fund Transfer</span>
             <span class="pull-right-container">
@@ -40,9 +43,22 @@
             </span>
           </a>
 		   <ul class="treeview-menu">
-            <li><a href="/admin/interTransfer"><i class="fa fa-circle-o"></i>Transfer within Bank</a></li>
+            <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/interTransfer' ? 'active':''}">
+            <a th:href="@{/admin/interTransfer}"><i class="fa fa-circle-o"></i>Transfer within Bank</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Transfer to Other Bank (NEFT)</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Instant Transfer (IMPS)</a></li>
+            <li class="treeview"><a href="#"><i class="fa fa-circle-o"></i> Beneficiary Management <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span></a>
+             	<ul class="treeview-menu">
+             		<li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/addBen' ? 'active':''}">
+             			<a th:href="@{/admin/addBen}"><i class="fa fa-circle-o"></i> Add Beneficiary</a>
+             		</li>
+             		<li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/viewBen' ? 'active':''}">
+             			<a th:href="@{/admin/viewBen}"><i class="fa fa-circle-o"></i> View Beneficiary</a>
+             		</li>
+             	</ul>
+            </li>
            </ul>
         </li>
         <li class="treeview">
@@ -58,7 +74,7 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Debit Cards</a></li>
 		  </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview" th:classappend="${#httpServletRequest.getRequestURI() == '/admin/loanSummary' ? 'active menu-open':''}" >
           <a href="#">
             <i class="fa fa-laptop"></i>
             <span>Loans</span>
@@ -67,7 +83,9 @@
             </span>
           </a>
 			<ul class="treeview-menu">
-				<li><a href="/admin/loanSummary"><i class="fa fa-circle-o"></i> Loan Summary</a></li>
+				<li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/loanSummary' ? 'active':''}" >
+					<a href="/admin/loanSummary"><i class="fa fa-circle-o"></i> Loan Summary</a>
+				</li>
            </ul>
         </li>
         <li>

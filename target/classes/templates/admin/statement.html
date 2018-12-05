@@ -25,6 +25,11 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+	<script th:src="@{/js/dataStatement.js}"></script> -->
 
   <!-- Google Font -->
   <link rel="stylesheet" th:href="@{/css/css.css}">
@@ -40,13 +45,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Loan Summary
-        <small>apply here</small>
-      </h1>
+      <h1>Account Statement</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Loans</a></li>
-        <li class="active">Loan Summary page</li>
+        <li><a href="#">Accounts</a></li>
+        <li class="active">Statement page</li>
       </ol>
     </section>
 
@@ -61,32 +64,33 @@
                 <div class="col-lg-8">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Current Loan Accounts:
+                            Accounts Statement:
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive table-bordered">
-                                <table class="table">
+                                <table id="statementTable" class="table display" border="1">
                                     <thead>
                                         <tr>
-                                            <th>Loan Account No#</th>
-                                            <th>Loan Amount</th>
-                                            <th>Tenure</th>
-                                            <th>Loan Repaid</th>
-                                            <th>Interest Rate</th>
-                                            <th>Loan Type</th>
+                                            <th>Date</th>
+                                            <th>Narration</th>
+                                            <th>Cheque/Ref No</th>
+                                            <th>Withdrawl</th>
+                                            <th>Deposit</th>
+                                            <th>Closing Balance</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td th:text="${loanDetails.loan_id}"></td>
-                                            <td th:text="${loanDetails.loan_amount}"></td>
-                                            <td th:text="${loanDetails.loan_tenure}"></td>
-                                            <td th:text="${loanDetails.loan_repaid}"></td>
-                                            <td th:text="${loanDetails.loan_int + '%'}"></td>
-                                            <td th:text="${loanDetails.loan_type}"></td>
-                                        </tr>
-                                    </tbody>
+                                    	<tr>
+                                    		<td th:text="${stmt.tran_date}"></td>
+                                    		<td th:text="${stmt.tran_desc}"></td>
+                                    		<td th:text="${stmt.tran_id}"></td>
+                                    		<td th:if="${stmt.tran_type} == 'debit'" th:text="${stmt.tran_type}"></td>
+                                    		<td th:if="${stmt.tran_type} == 'credit'" th:text="${stmt.tran_type}"></td>
+                                    		<td th:text="${stmt.tran_amt}"></td>
+                                    	</tr>
+	                                </tbody>
+                 
                                 </table>
                             </div>
                             <!-- /.table-responsive -->

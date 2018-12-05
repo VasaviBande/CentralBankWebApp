@@ -40,69 +40,60 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Loan Summary
-        <small>apply here</small>
+      <h1>Beneficiary Management
+        <small>view Beneficiary here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Loans</a></li>
-        <li class="active">Loan Summary page</li>
+        <li><a href="#">Fund Transfer</a></li>
+        <li class="active">Beneficiary Management</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
 
-          <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                   <!-- /.col-lg-6 -->
-                <div class="col-lg-8">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            Current Loan Accounts:
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive table-bordered">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Loan Account No#</th>
-                                            <th>Loan Amount</th>
-                                            <th>Tenure</th>
-                                            <th>Loan Repaid</th>
-                                            <th>Interest Rate</th>
-                                            <th>Loan Type</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td th:text="${loanDetails.loan_id}"></td>
-                                            <td th:text="${loanDetails.loan_amount}"></td>
-                                            <td th:text="${loanDetails.loan_tenure}"></td>
-                                            <td th:text="${loanDetails.loan_repaid}"></td>
-                                            <td th:text="${loanDetails.loan_int + '%'}"></td>
-                                            <td th:text="${loanDetails.loan_type}"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-6 -->
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
+         <div class="row">
+        <div class="col-xs-12">
+          <div th:switch="${bens}" class="box box-warning">
+            <div class="box-header">
+              <h3 class="box-title">View Beneficiary List</h3>
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.box-header -->
+            <div th:case="*" class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                	<th>Select</th> 
+					<th>Beneficiary Account Number</th>
+					<th>Beneficiary Bank Name</th>
+                    <th>Beneficiary Name</th>
+                    <th>Beneficiary Contact Number</th>
+                    <th>Beneficiary Email Id</th>
+                    <th></th>
+                </tr>
+                <tr th:each="ben : ${bens}">
+                	<td>
+						<div class="radio">
+							<label>
+								<input type="radio" name="benRadios" id="benRadio" value="${ben.ben_id}">
+							</label>
+						</div>
+					</td>
+                	<td th:text="${ben.ben_account}"></td>
+                	<td th:text="${ben.ben_bank}"></td>
+                    <td th:text="${ben.ben_name}"></td>
+                    <td th:text="${ben.ben_contact}"></td>
+                    <td th:text="${ben.ben_email}"></td>
+                    <td><a th:href="@{/admin/delBen/{id}(id=${ben.ben_id})}">
+                    <span class="badge bg-red">Delete</span></a></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-        <!-- /#page-wrapper -->
+      </div>
 
     </section>
     <!-- /.content -->

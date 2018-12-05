@@ -72,19 +72,19 @@
                                             <th>Loan Account No#</th>
                                             <th>Loan Amount</th>
                                             <th>Tenure</th>
-                                            <th>EMI</th>
-                                            <th>Status</th>
-                                            <th>Product</th>
+                                            <th>Loan Repaid</th>
+                                            <th>Interest Rate</th>
+                                            <th>Loan Type</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>15467831438</td>
-                                            <td>50,000/-</td>
-                                            <td>60</td>
-                                            <td>12,360/-</td>
-                                            <td>Active</td>
-                                            <td>Personal Loan</td>
+                                            <td th:text="${loanDetails.loan_id}"></td>
+                                            <td th:text="${loanDetails.loan_amount}"></td>
+                                            <td th:text="${loanDetails.loan_tenure}"></td>
+                                            <td th:text="${loanDetails.loan_repaid}"></td>
+                                            <td th:text="${loanDetails.loan_int + '%'}"></td>
+                                            <td th:text="${loanDetails.loan_type}"></td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -12,13 +12,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.User;
+import com.example.service.StatementService;
 import com.example.service.UserService;
+
+import com.example.model.Statement;
+
 
 @Controller
 public class LoginController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private StatementService statementService;
 
 	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
@@ -78,23 +85,17 @@ public class LoginController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/admin/loanSummary", method = RequestMethod.GET)
-	public ModelAndView loanSummary(){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
-		modelAndView.setViewName("admin/loanSummary");
-		return modelAndView;
-	}
 	
-	@RequestMapping(value="/admin/acSummary", method = RequestMethod.GET)
-	public ModelAndView acSummary(){
+	@RequestMapping(value="/admin/statement", method = RequestMethod.GET)
+	public ModelAndView acStatement(){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
+		Statement stmt = statementService.getStatementById(user.getId());
+		modelAndView.addObject("stmt",stmt);
+		
 		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
-		modelAndView.setViewName("admin/acSummary");
+		modelAndView.setViewName("admin/statement");
 		return modelAndView;
 	}
 	
