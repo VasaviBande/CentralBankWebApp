@@ -50,31 +50,33 @@ public class BeneficiaryController {
         Beneficiary benf = new Beneficiary();
         modelAndView.addObject("benf", benf);
         modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
+        modelAndView.addObject("custId", user.getId());
         modelAndView.setViewName("admin/addBen");
         return modelAndView;
 	}
 		
 	@RequestMapping(value="/admin/addBen", method = RequestMethod.POST)
 	public String addBen(@Valid Beneficiary benf, BindingResult result, Model model) {
+		
 		 if (result.hasErrors()) {
 	            return "/admin/addBen";
 	        }
-	        
+		 else {  
 		 	benService.createBeneficiary(benf);
-	        model.addAttribute("bens", benService.getBeneficiary());
-	        return "/admin/viewBen";
+	        return "redirect:/admin/viewBen";
+		 }
 	
 	}
 	
 	@RequestMapping(value="/admin/viewBen", method = RequestMethod.GET)
-    public List<Beneficiary> getAllBen(Model model) {
+    public List<Beneficiary> getAllBenById(Model model) {
 		
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
         model.addAttribute("userName", user.getName() + " " + user.getLastName());
-        List<Beneficiary> bens=benService.getBeneficiary();
-        //List<Beneficiary> bens = (List<Beneficiary>) benService.getBenById(5);
-        model.addAttribute("bens", benService.getBeneficiary());
+        List<Beneficiary> bens=benService.getBenById(user.getId());
+        //List<Beneficiary> bens = (List<Beneficiary>) benService.getBenById(4);
+        model.addAttribute("bens", benService.getBenById(user.getId()));
         return bens;
     }
 	

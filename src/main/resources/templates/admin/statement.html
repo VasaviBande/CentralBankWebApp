@@ -75,9 +75,9 @@
                                             <th>Date</th>
                                             <th>Narration</th>
                                             <th>Cheque/Ref No</th>
-                                            <th>Withdrawl</th>
-                                            <th>Deposit</th>
-                                            <th>Closing Balance</th>
+                                            <th>Debit</th>
+                                            <th>Credit</th>
+                                            <th>Current Balance</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -85,9 +85,15 @@
                                     		<td th:text="${stmt.tran_date}"></td>
                                     		<td th:text="${stmt.tran_desc}"></td>
                                     		<td th:text="${stmt.tran_id}"></td>
-                                    		<td th:if="${stmt.tran_type} == 'debit'" th:text="${stmt.tran_type}"></td>
-                                    		<td th:if="${stmt.tran_type} == 'credit'" th:text="${stmt.tran_type}"></td>
-                                    		<td th:text="${stmt.tran_amt}"></td>
+                                            <td>
+                                                <span th:if="${stmt.tran_type == 'debit'}" th:text="${stmt.tran_amt}"></span>
+                                                <span th:unless="${stmt.tran_type == 'credit'}"></span>
+                                            </td>
+                                            <td>
+                                                <span th:if="${stmt.tran_type == 'credit'}" th:text="${stmt.tran_amt}"></span>
+                                                <span th:unless="${stmt.tran_type == 'debit'}"></span>
+                                            </td>
+                                    		<td th:text="${stmt.tran_curr_bal}"></td>
                                     	</tr>
 	                                </tbody>
                  

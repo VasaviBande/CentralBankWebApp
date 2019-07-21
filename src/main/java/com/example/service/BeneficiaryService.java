@@ -11,7 +11,7 @@ public interface BeneficiaryService {
 	
 	public List<Beneficiary> getBeneficiary();
 	
-	public Beneficiary getBenById(long id);
+	public List<Beneficiary> getBenById(long id);
 	
 	public Beneficiary updateBen(Beneficiary ben, long l);
 	

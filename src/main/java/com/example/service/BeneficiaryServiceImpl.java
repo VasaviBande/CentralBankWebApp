@@ -28,9 +28,9 @@ public class BeneficiaryServiceImpl implements BeneficiaryService{
 	}
 
 	@Override
-	public Beneficiary getBenById(long id) {
+	public List<Beneficiary> getBenById(long id) {
 		// TODO Auto-generated method stub
-		return benRepo.findOne(id);
+		return (List<Beneficiary>) benRepo.findBenById(id);
 	}
 
 	@Override

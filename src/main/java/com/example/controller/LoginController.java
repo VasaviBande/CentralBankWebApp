@@ -99,16 +99,7 @@ public class LoginController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/admin/interTransfer", method = RequestMethod.GET)
-	public ModelAndView interTransfer(){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
-		modelAndView.addObject("adminMessage","to Central Bank Internet Banking Application");
-		modelAndView.setViewName("admin/interTransfer");
-		return modelAndView;
-	}
+
 	
 
 }

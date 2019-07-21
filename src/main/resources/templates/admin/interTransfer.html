@@ -76,21 +76,19 @@
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">From Account</label>
 
-                  <div class="col-sm-4">
-                     <select class="form-control" id="exampleFormControlSelect1">
-					      <option>165446545646</option>
-					      <option>2</option>
-					    </select>
+                  <div th:switch="${acc}" class="col-sm-4">
+                     <select class="form-control" id="benAccountNumber">
+                     	<option th:each="ac : ${acc}" th:value="${ac.ac_id}" th:text="${ac.ac_no}"></option>
+					 </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Select a Beneficiary</label>
 
-                  <div class="col-sm-4">
+                  <div th:switch="${bens}" class="col-sm-4">
                      <select class="form-control" id="exampleFormControlSelect1">
-					      <option>555555784142</option>
-					      <option>2</option>
-					    </select>
+					      <option th:each="ben : ${bens}" th:value="${ben.ben_id}" th:text="${ben.ben_name}"></option>
+				    </select>
                   </div>
                 </div>
                 <div class="form-group">

@@ -17,7 +17,7 @@ public class Beneficiary {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Ben_Id")
 	private long ben_id;
@@ -42,7 +42,7 @@ public class Beneficiary {
 	@Column(name = "Ben_Email")
 	private String ben_email;
 	
-	@Id
+	
 	@Column(name = "Ben_Cust_Id")
 	private long ben_cust_id;
 	
