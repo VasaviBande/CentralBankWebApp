@@ -72,7 +72,7 @@
 				<div class="banner-inner">
 					<div class="col-md-5 banner-left">
 						<form th:action="@{/login}" method="POST">
-						<h3> BANKING ON CLOUD </h3>
+							<h3> BANKING ON CLOUD <p><a href="/registration">New user!</a></p></h3>
 							<input type="text" id="email" name="email"  th:placeholder="Email" required="" />
 							<input type="password"  th:placeholder="Password" id="password" name="password" required=""/>
 							<div align="center" th:if="${param.error}">
@@ -91,21 +91,21 @@
 								<div class="main-icon">
 									<i class="fa fa-share" aria-hidden="true"></i>
 								</div>
-								<p>Etiam felis tellus, interdum in fringilla ac, imperdiet sed mi.</p>
+								<p>Improved Flexibility and Scalability.</p>
 							<div class="clearfix"></div>
 							</div>
 							<div class="banner-right-text">
 								<div class="main-icon">
 									<i class="fa fa-share" aria-hidden="true"></i>
 								</div>
-								<p>Donec aliquet venenatis vehicula. Etiam malesuada arcu.</p>
+								<p>Increased Efficiency, Security and Compliance.</p>
 							<div class="clearfix"></div>
 							</div>
 							<div class="banner-right-text">
 								<div class="main-icon">
 									<i class="fa fa-share" aria-hidden="true"></i>
 								</div>
-								<p>Etiam felis tellus, interdum in fringilla ac, imperdiet sed mi</p>
+								<p>Cloud Management and Interoperability.</p>
 							<div class="clearfix"></div>
 							</div>
 						</div>

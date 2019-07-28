@@ -3,10 +3,12 @@ package com.centralbank.app.controller;
 import java.util.List;
 
 import com.centralbank.app.model.Account;
+import com.centralbank.app.model.BankingTransactions;
 import com.centralbank.app.model.Beneficiary;
 import com.centralbank.app.model.User;
 import com.centralbank.app.service.AccountService;
 import com.centralbank.app.service.BeneficiaryService;
+import com.centralbank.app.service.TransactionService;
 import com.centralbank.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -27,6 +29,9 @@ public class FundTransferController {
 	
 	@Autowired
 	private AccountService accService;
+
+	@Autowired
+	private TransactionService transactionService;
 
 	
 	@RequestMapping(value="/admin/interTransfer", method = RequestMethod.GET)

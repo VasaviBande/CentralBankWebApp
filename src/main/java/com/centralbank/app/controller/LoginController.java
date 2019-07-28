@@ -17,6 +17,8 @@ import com.centralbank.app.service.UserService;
 
 import com.centralbank.app.model.Statement;
 
+import java.util.Date;
+
 
 @Controller
 public class LoginController {
@@ -70,7 +72,8 @@ public class LoginController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
-		modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+		modelAndView.addObject("adminMessage","To Central Bank Internet Banking System.");
+		modelAndView.addObject("standardDate", new Date());
 		modelAndView.setViewName("admin/home");
 		return modelAndView;
 	}
