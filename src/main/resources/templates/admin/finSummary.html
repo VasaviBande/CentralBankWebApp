@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Welcome to Central Bank NetBanking</title>
+  <title>Welcome to XYZ Bank NetBanking</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -58,7 +58,7 @@
         <div class="box-body">
              <div class="callout callout-info">
                 <h4>Holdings!</h4>
-                <p>Savings Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Available Balance: INR 5.00.</p>
+                 <p>Savings Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Available Balance: INR <b th:text="${curBal}"></b></p>
               </div>
           <!-- /.box -->
        </div>
@@ -66,7 +66,7 @@
         <div class="box-footer">
           <div class="callout callout-warning">
                <h4>OutStanding!</h4>
-                <p>Loan Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Loan Amount: INR 5.00.</p>
+                <p>Loan Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Loan Amount: INR 0.00.</p>
               </div>
         </div>
         <!-- /.box-footer-->

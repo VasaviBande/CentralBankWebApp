@@ -2,6 +2,8 @@ package com.centralbank.app.controller;
 
 import javax.validation.Valid;
 
+import com.centralbank.app.model.BankingTransactions;
+import com.centralbank.app.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +30,9 @@ public class LoginController {
 	
 	@Autowired
 	private StatementService statementService;
+
+	@Autowired
+	private TransactionService transactionService;
 
 	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
@@ -84,6 +89,8 @@ public class LoginController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
+		BankingTransactions bankingTransactions = transactionService.getCurrentBalance(user.getId());
+		modelAndView.addObject("curBal", bankingTransactions.getCurrentBal());
 		modelAndView.setViewName("admin/finSummary");
 		return modelAndView;
 	}
